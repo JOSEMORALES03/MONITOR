@@ -9,11 +9,12 @@ body{
 }
 
 .contenedor-tarjetas{
-    display:grid;
-    grid-template-columns: 320px 320px;
-    justify-content:center;
-    gap:25px;
-    margin-top:60px;
+    display: grid;
+    grid-template-columns: repeat(2, 320px);
+    justify-content: center;
+    gap: 25px;
+    margin-top: 60px;
+    padding: 0 15px;
 }
 
 .tarjeta{
@@ -43,45 +44,24 @@ body{
 }
 
 .tarjeta p{
-    font-size: 50px;
+    font-size: clamp(28px, 4vw, 50px);
     font-weight: bold;
     margin: 10px;
     transition: all 0.5s ease;
 }
 
 .tarjeta h2{
-    font-size:28px;
+    font-size: clamp(18px, 3vw, 28px);
     font-weight:bold;
     color:#000;
     margin-bottom:15px;
 }
 
-
-.tarjeta p{
-    font-size:40px;
-    font-weight:bold;
-    margin:10px;
-}
-
-.verde{
-    background:#219821;
-}
-
-.amarillo{
-    background:#9e8d1d;
-}
-
-.rojo{
-    background:#ae1818;
-}
-
-.Lloviendo{
-    background: rgb(38, 137, 186);
-}
-
-.seco{
-    background: #18cd60;
-}
+.verde{ background:#219821; }
+.amarillo{ background:#9e8d1d; }
+.rojo{ background:#ae1818; }
+.Lloviendo{ background: rgb(38, 137, 186); }
+.seco{ background: #18cd60; }
 
 #estado{
     position:fixed;
@@ -96,13 +76,8 @@ body{
     transition:0.3s;
 }
 
-#estado.conectado{
-    background:#2ecc71 !important;
-}
-
-#estado.desconectado{
-    background:#e74c3c !important;
-}
+#estado.conectado{ background:#2ecc71 !important; }
+#estado.desconectado{ background:#e74c3c !important; }
 
 .top-controls{
     position:fixed;
@@ -188,4 +163,75 @@ body{
 .manual {
     color: #ae1818;
     font-weight: bold;
+}
+
+@media (max-width: 768px){
+    .top-controls{
+        position: fixed;
+        right: 10px;
+        top: 50px;
+    }
+
+    .control input{
+        width: 100px;
+    }
+}
+
+@media (max-width: 480px){
+
+    .contenedor-tarjetas{
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+    }
+
+    #estado{
+        right: 10px;
+        font-size: 14px;
+    }
+
+    .top-controls{
+        top: auto;
+        bottom: 10px;
+        right: 10px;
+        flex-direction: column;
+    }
+
+    .control{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .control input{
+        width: 100%;
+    }
+
+    .tarjeta:hover{
+        transform: none;
+    }
+}
+
+@media (max-width: 768px){
+    .contenedor-tarjetas{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px){
+    .contenedor-tarjetas{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px){
+    #estado{
+        position: relative;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        margin: 10px auto;
+    }
+
+    body{
+        padding-top: 10px;
+    }
 }
