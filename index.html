@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONITOR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <h1>Sistema De Riego</h1>
+    
+    <div class="contenedor-tarjetas">
+        
+
+        <div class="tarjeta">
+            <h2>temperatura</h2>
+            <p id="temperatura">cargando...</p>
+        </div>
+
+        <div class="tarjeta">
+            <h2>Humedad</h2>
+            <p id="humedad">cargando...</p>
+        </div>
+
+        <div class="tarjeta">
+            <h2>Humedad del Suelo</h2>
+            <p id="suelo">0 %</p>
+        </div>
+
+        <div class="tarjeta">
+            <h2>Lluvia</h2>
+            <p id="lluvia">Desconocido</p>
+        </div>
+    </div>
+    
+    <div class="top-controls">
+
+        <p id="estado">Sin conexión</p>
+        
+    <div class="control-group">
+
+        <label>ID del dispositivo</label>
+
+        <div class="control">
+            <input type="text" id="ipInput" value="192.168.1.18">
+            <button onclick="guardarIP()">Guardar</button>
+        </div>
+
+    </div>
+
+    <div class="control-group">
+
+        <label>Intervalo (segundos)</label>
+
+        <div class="control">
+            <input type="number" id="intervalInput" value="4" min="1">
+            <button onclick="cambiarIntervalo()">Aplicar</button>
+        </div>    
+        
+        <label>Modo de funcionamiento</label>
+
+        <div class="control">
+             <button id="autoBtn" onclick="setMode('auto')">AUTÓNOMO</button>
+             <button id="manualBtn" onclick="setMode('manual')">MANUAL</button>
+         </div>
+
+    </div>
+
+    <div id="manualControls" style="display:none;">
+
+    <div class="control">
+        <button id="onBtn" onclick="encender()">ON</button>
+        <button id="offBtn" onclick="apagar()">OFF</button>
+    </div>
+
+</div>
+    </div>
+    <div class="control-group">
+    </div>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</body>
+
+</html>
